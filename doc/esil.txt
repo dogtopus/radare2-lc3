@@ -1,0 +1,48 @@
+# LC-3 to anal+ESIL (WIP)
+
+# Internal registers
+# pc: program counter
+# zf: zero flag
+# pf: positive flag
+# nf: negative flag
+# _sf: cached sign flag (1=negative, 0=positive)
+
+# TODO is _sf really needed?
+
+# zf = $z; _sf = $s; nf = !zf | _sf; nf = !zf | !_sf;
+
+$(SETCC): $z,zf,=,
+          $s,_sf,=,
+          zf,!,_sf,|,nf,=,
+          zf,!,_sf,!,|,pf,=
+
+add r$(lhs), r$(x), (r)$(y) ADD
+(r)$(y),r$(x),+,r$(lhs),=
+
+and r$(lhs), r$(x), (r)$(y) AND
+(r)$(y),r$(x),&,r$(lhs),=
+
+br(nzp) $(pcrel) CJMP (br | brnzp is JMP)
+# check flags as nzp flags suggessted
+sf,zf,|,pf,|,?{,$(pcrel),pc,=,}
+
+jmp r$(reg) UJMP
+r$(reg),pc,=
+
+ret RET
+r7,pc,=
+
+jsr $(pcrel) CALL
+pc,r7,=,$(pcrel),pc,=
+
+jsrr r$(reg) UCALL (possible to track the constant?)
+pc,r7,=,r$(reg),pc,=
+
+ld r$(reg), $(pcrel) LOAD
+$(pcrel),[2],r$(reg),=,$(SETCC)
+
+ldi r$(reg), $(pcrel) (LOAD | IND) (?)
+$(pcrel),[2],[2],r$(reg),=,$(SETCC)
+
+ldr r$(reg), r$(baser), $(off)
+$(off),r$(baser),+,[2],r$(reg),=,$(SETCC)
