@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "asm_functions.h"
 
 // Plugin description
 RAsmPlugin r_asm_plugin_lc3 = {

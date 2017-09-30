@@ -1,6 +1,6 @@
 /* Little Computer 3 (LC-3) disassembler for Radare2 */
 
-#include "functions.h"
+#include "asm_functions.h"
 
 int do_disassemble(RAsm *ctx, RAsmOp *result, const ut8 *input, int len) {
     char argsbuf[32];

@@ -20,7 +20,7 @@ project(r2-lc3)
 add_library(asm_lc3 SHARED
     disassembler.c
     assembler.c
-    plugin.c
+    asm_plugin.c
 )
 
 set_target_properties(asm_lc3 PROPERTIES PREFIX "")

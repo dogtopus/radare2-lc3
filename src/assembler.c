@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "asm_functions.h"
 
 #define GTFO(...) eprintf(__VA_ARGS__); return -1
 

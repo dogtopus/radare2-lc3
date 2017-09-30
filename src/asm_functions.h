@@ -1,5 +1,5 @@
-#ifndef __FUNCTIONS_H__
-#define __FUNCTIONS_H__
+#ifndef __ASM_FUNCTIONS_H__
+#define __ASM_FUNCTIONS_H__
 
 #include <r_asm.h>
 #include <r_lib.h>
