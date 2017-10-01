@@ -5,16 +5,12 @@
 # zf: zero flag
 # pf: positive flag
 # nf: negative flag
-# _sf: cached sign flag (1=negative, 0=positive)
 
-# TODO is _sf really needed?
-
-# zf = $z; _sf = $s; nf = !zf | _sf; nf = !zf | !_sf;
+# zf = $z; nf = $s; pf = !zf & !nf;
 
 $(SETCC): $z,zf,=,
-          $s,_sf,=,
-          zf,!,_sf,|,nf,=,
-          zf,!,_sf,!,|,pf,=
+          $s,nf,=,
+          $z,$s,|,!,pf,=
 
 add r$(lhs), r$(x), (r)$(y) ADD
 (r)$(y),r$(x),+,r$(lhs),=

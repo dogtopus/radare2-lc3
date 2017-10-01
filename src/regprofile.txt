@@ -1,0 +1,42 @@
+## Register roles
+# =RO	reg
+
+# TODO: Ax and Rx registers?
+=PC	pc
+=SP	r6
+=LR	r7
+=ZF	zf
+=SF	nf
+
+## Register definitions
+# type	reg	size	off	sbz?
+
+# GPRs (not GPRS)
+gpr	r0	.16	0	0
+gpr	r1	.16	2	0
+gpr	r2	.16	4	0
+gpr	r3	.16	6	0
+gpr	r4	.16	8	0
+gpr	r5	.16	10	0
+gpr	r6	.16	12	0
+gpr	r7	.16	14	0
+
+# Eye candies
+gpr	sp	.16	12	0
+gpr	lr	.16	14	0
+
+# Internal registers used by the processor (excludes IR because it's useless)
+gpr	pc	.16	16	0
+flg	psr	.16	18	0
+
+# Flags
+# Priviledge mode
+flg	pri	.1	18.15	0
+
+# Priority level
+flg	pl	.3	18.8	0
+
+# Individual conditional codes
+flg	nf	.1	18.2	0
+flg	zf	.1	18.1	0
+flg	pf	.1	18.0	0
