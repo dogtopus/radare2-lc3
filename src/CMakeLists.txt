@@ -18,7 +18,6 @@ project(r2-lc3)
 # Libraries
 # See https://cmake.org/cmake/help/v3.0/command/add_library.html
 add_library(asm_lc3 SHARED
-    disassembler.c
     assembler.c
     asm_plugin.c
 )
