@@ -2,6 +2,8 @@
 
 A set of LC-3 plugin for Radare2
 
+(Development stalled. Currently assembler and disassembler should somewhat work. Anal and ESIL were unfinished. Also the 16-bit byte used by LC-3 makes anal support very difficult to be done cleanly without a companion io plugin. https://github.com/MaskRay/r2cLEMENCy might be a good start if you are looking for writing one.)
+
 ## Build
 
 CMake and recent version of radare2 is needed in order to build this project.
